@@ -14,7 +14,6 @@
 #include "../util/util.h"
 #include "../ui/ui_messageview.h"
 #include "../ui/ui_statusview.h"
-#include "../ui/ui_lockedview.h"
 #include "ui/ui_selectedcredentialview.h"
 #include "ui/ui_userselect.h"
 #include "util\interop.h"
@@ -69,13 +68,9 @@ namespace init
     {
         InitSpdlog();
         //system("start cmd.exe");
-    wchar_t systemRoot[MAX_PATH];
-    GetEnvironmentVariableW(L"SYSTEMROOT", systemRoot, MAX_PATH);
-    wchar_t dllPath[MAX_PATH];
-    swprintf(dllPath, MAX_PATH, L"%s\\System32\\ConsoleLogon.dll", systemRoot); 
-    auto baseaddress = (uintptr_t)LoadLibraryW(dllPath);
-    if (!baseaddress)
-        MessageBox(0, L"FAILED TO LOAD (INIT.CPP ConsoleLogon.dll)", L"FAILED TO LOAD", 0); // It's a miracle that this doesn't implode itself. I would too.
+        auto baseaddress = (uintptr_t)LoadLibraryW(L"C:\\Windows\\System32\\ConsoleLogon.dll");
+        if (!baseaddress)
+            MessageBox(0, L"FAILED TO LOAD", L"FAILED TO LOAD", 0);
 
         //MessageBox(0, L"dbg0", 0, 0);
         memory::LoadOffsetCache();
@@ -87,7 +82,7 @@ namespace init
         auto stringdll = LoadLibraryW(L"api-ms-win-core-winrt-string-l1-1-0.dll");
         if (!stringdll)
         {
-            MessageBoxW(0, L"api-ms-win-core-winrt-string-l1-1-0.dll hates you.", L"ur fucked", 0); // Same thing as (dllmain.cpp line 23)
+            MessageBoxW(0, L"ur fucked", L"ur fucked", 0);
         }
         else
         {
@@ -115,7 +110,6 @@ namespace init
         //MessageBox(0, L"dbg3.4", 0, 0);
         uiSelectedCredentialView::InitHooks(baseaddress);
         //MessageBox(0, L"dbg4", 0, 0);
-        uiLockedView::InitHooks(baseaddress);
         memory::SaveOffsetCache();
 
         MinimizeLogonConsole();
