@@ -2,6 +2,9 @@
 This project hooks onto and provides a graphical user interface for the console logon screen in Windows 10.<br>
 Credits go to [@mishaproductions](https://github.com/mishaproductions) for the [DirectUI library](https://github.com/MishaProductions/dui70), I was too lazy to properly embed it into the CLH repo
 
+> [!NOTE]
+> This is not the original repository, CLH is now deprecated and the original owner recommends you to use [AuthUX](https://github.com/world-windows-federation/AuthUX), unless you have a specific use case, please go use that instead!
+
 > [!WARNING]
 > **This project is in early development and might be unstable.** You may encounter issues using a Microsoft account, however, this will work perfectly fine on local accounts. Disabling the lockscreen and the <kbd>CTRL</kbd> <kbd>Alt</kbd> <kbd>Del</kbd> logon keybinds is recommended as they're not fully implemented yet.
  
