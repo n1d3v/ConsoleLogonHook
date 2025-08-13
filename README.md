@@ -12,7 +12,7 @@ Credits go to [@mishaproductions](https://github.com/mishaproductions) for the [
 > [!WARNING]
 > **This will require administrator privileges to be installed.**
 
-1. Copy the 2 DLL files (ConsoleLogonHook.dll and ConsoleLogonUI.dll) from [Releases](https://github.com/wiktorwiktor12/ConsoleLogonHook/releases) into %SYSTEMROOT%\System32
+1. Copy the 2 DLL files (ConsoleLogonHook.dll and ConsoleLogonUI.dll) from [Releases](https://github.com/n1d3v/ConsoleLogonHook/releases) into %SYSTEMROOT%\System32
 2. Open a CMD window as TrustedInstaller via PsExec64 and copy and paste the following commands:
 
 ```cmd
